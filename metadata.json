@@ -1,0 +1,8 @@
+{
+  "name": " TRUTH LENS ",
+  "description": "AI forensic media verification platform for real-time authenticity analysis across images, video, and audio.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

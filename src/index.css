@@ -1,0 +1,135 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Plus Jakarta Sans", ui-sans-serif, system-ui, -apple-system, sans-serif;
+  --font-condensed: "Barlow Condensed", "Arial Narrow", ui-sans-serif, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+}
+
+@layer base {
+  html {
+    background-color: #0B0F19;
+    color: #F1F5F9;
+    font-family: var(--font-sans);
+  }
+
+  body {
+    overflow-x: hidden;
+    background-color: #0B0F19;
+  }
+}
+
+/* Deep midnight indigo radial stage backdrop */
+.truthlens-hero-bg {
+  background:
+    radial-gradient(62% 54% at 50% 48%, rgba(36, 48, 98, 0.52) 0%, rgba(22, 27, 51, 0.72) 42%, #0B0F19 100%),
+    #0B0F19;
+}
+
+/* Hidden forensic icon mask synchronized with rAF-updated CSS variables */
+.forensic-lens-mask {
+  mask-image: radial-gradient(
+    circle var(--lens-r, 0px) at var(--lens-x, -300px) var(--lens-y, -300px),
+    #000000 0%,
+    #000000 84%,
+    rgba(0, 0, 0, 0.45) 94%,
+    transparent 100%
+  );
+  -webkit-mask-image: radial-gradient(
+    circle var(--lens-r, 0px) at var(--lens-x, -300px) var(--lens-y, -300px),
+    #000000 0%,
+    #000000 84%,
+    rgba(0, 0, 0, 0.45) 94%,
+    transparent 100%
+  );
+}
+
+/* Under-lens module glow sweep */
+.module-lens-glow {
+  background: radial-gradient(
+    circle 160px at var(--card-lens-x, 50%) var(--card-lens-y, 50%),
+    rgba(129, 140, 248, 0.28) 0%,
+    rgba(99, 102, 241, 0.1) 45%,
+    transparent 80%
+  );
+}
+
+/* 3D Flip Card primitives */
+.flip-perspective {
+  perspective: 1200px;
+}
+
+.flip-inner {
+  transform-style: preserve-3d;
+  transition: transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.flip-inner.is-flipped {
+  transform: rotateY(180deg);
+}
+
+.flip-face {
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+.flip-face-back {
+  transform: rotateY(180deg);
+}
+
+/* Card Front Animations */
+@keyframes wavePulse {
+  0%, 100% { transform: scaleY(0.28); }
+  50% { transform: scaleY(1); }
+}
+
+@keyframes scanSweepY {
+  0%, 100% { transform: translateY(0%); opacity: 0.45; }
+  50% { transform: translateY(240%); opacity: 1; }
+}
+
+@keyframes scanSweepX {
+  0%, 100% { transform: translateX(-20%); opacity: 0.3; }
+  50% { transform: translateX(120%); opacity: 0.95; }
+}
+
+@keyframes tokenShimmer {
+  0%, 100% { opacity: 0.35; }
+  50% { opacity: 1; }
+}
+
+.animate-wave-bar {
+  transform-origin: center;
+  animation: wavePulse 1.35s ease-in-out infinite;
+}
+
+.animate-scan-y {
+  animation: scanSweepY 2.4s ease-in-out infinite;
+}
+
+.animate-scan-x {
+  animation: scanSweepX 2.6s ease-in-out infinite;
+}
+
+.animate-token-shimmer {
+  animation: tokenShimmer 1.8s ease-in-out infinite;
+}
+
+/* Subtle custom dark scrollbars */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0B0F19;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(148, 163, 184, 0.18);
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(148, 163, 184, 0.34);
+}
